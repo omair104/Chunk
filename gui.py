@@ -8,7 +8,7 @@ import os
 import sys
 import tkinter
 from tkinter import Toplevel
-from tkinter import filedialog
+#from tkinter import filedialog
 import chunk_creator
 
 #For third party libraies
@@ -49,14 +49,14 @@ class Application(tkinter.Frame):
         self.length_label = tkinter.Label(self, text='Enter input files location:').grid(row=17, sticky='W')
         self.input_location_entrybox = tkinter.Entry(self, width=45)
         self.input_location_entrybox.grid(row=18, sticky='W')
-        self.askbutton= tkinter.Button(self, text='browse', command=self.askdirectory_input).grid(row=18, column=1)
+        #self.askbutton= tkinter.Button(self, text='browse', command=self.askdirectory_input).grid(row=18, column=1)
 
          
         #Enter Output file Location
         self.location_label=tkinter.Label(self, text='Enter output files location:').grid(row=19, sticky='W')
         self.output_location_entrybox=tkinter.Entry(self, width=45)
         self.output_location_entrybox.grid(row=20, sticky='W')
-        self.askbutton= tkinter.Button(self, text='browse', command=self.askdirectory_output).grid(row=20, column=1)
+        #self.askbutton= tkinter.Button(self, text='browse', command=self.askdirectory_output).grid(row=20, column=1)
         
         #Enter Images per chunk
         self.length_label = tkinter.Label(self, text='Images per chunk:').grid(row=21, sticky='W')
@@ -79,7 +79,7 @@ class Application(tkinter.Frame):
         #button for converting
         self.convertbutton = tkinter.Button(self, width=20, text='Copy Images to Chunks',font=('bold',18), command=self.copyFiles)
         self.convertbutton.grid(row=28, pady=10, sticky='W')
-
+    '''
     def askdirectory_input(self):
         filename = filedialog.askdirectory()
         self.input_location_entrybox.delete(0,500)
@@ -89,6 +89,7 @@ class Application(tkinter.Frame):
         filename = filedialog.askdirectory()
         self.output_location_entrybox.delete(0,500)
         self.output_location_entrybox.insert(0, filename)
+    '''
         
         
     def copyFiles(self):
