@@ -15,14 +15,14 @@ def main(input_location, output_location, images_per_chunk, overlap_size):
     print("Images per chunk set: " + str(images_per_chunk))
     print("Overlap size set: " + str(overlap_size))
     
-    list_of_files = os.listdir(input_location) 
+    list_of_files = sorted(os.listdir(input_location))
     print(list_of_files)
     
     
     number_of_files = len(list_of_files)
     print("Total number of input Files are: " + str(number_of_files))
     
-    number_of_chunks = math.ceil(number_of_files / (images_per_chunk - overlap_size))
+    number_of_chunks = math.ceil((number_of_files-images_per_chunk) / (images_per_chunk - overlap_size)) +1
     #number_of_chunks = int(number_of_files / (images_per_chunk - overlap_size)) + (number_of_files % (images_per_chunk - overlap_size) >0)
     print("Total number of chunks to be created: " + str(number_of_chunks))
     
@@ -47,6 +47,7 @@ def main(input_location, output_location, images_per_chunk, overlap_size):
                 break
             
         n = n - overlap_size
+    print(chunk_array)
         
     #print(chunk_array[0])
     for i in range(number_of_chunks):
